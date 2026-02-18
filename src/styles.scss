@@ -1,1 +1,202 @@
-/* You can add global styles to this file, and also import other style files */
+// Variables
+$background-color: #f26a8d;
+$text-color: #a91e1e;
+$secondary-color: #ffffff;
+$font-family: "Century Schoolbook", "New Century Schoolbook", Georgia, serif;
+
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Body styles
+body {
+  background-color: $background-color;
+  font-family: $font-family;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 250px;
+  background-color: $background-color;
+  z-index: 99;
+}
+
+// Fixed header containers
+.title-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 10px;
+  background-color: $background-color;
+  z-index: 100;
+}
+
+.subtitle-container {
+  position: fixed;
+  top: 135px; // Starts BEFORE title ends - creates overlap
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 40px;
+  background-color: $background-color;
+  z-index: 100;
+}
+
+// Container
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 60px;
+  height: 100%;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  margin-top: 240px; /* ← Add this line to push content below fixed header */
+  padding-bottom: 60px;
+}
+
+.image-container img {
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.visitors-container {
+  position: fixed; // Changed from absolute to fixed
+  top: 20px;
+  right: 30px;
+  padding: 10px 15px;
+  z-index: 101; // Above the header
+}
+
+.visitors-text {
+  color: $secondary-color; // Fixed: was missing $
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+// Title
+.title {
+  color: rgb(25, 58, 143);
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.subtitle {
+  color: $secondary-color;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.carousel-wrapper {
+  padding-top: 280px; // Below fixed header
+  padding-bottom: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  /* Cream background styling */
+  background-color: #fff8e7;
+
+  /* Sizing */
+  max-width: 600px;
+  padding: 60px 3rem; /* extra side padding for scallop inset */
+  margin: 240px auto 2rem;
+  padding-bottom: calc(60px + 50px); // existing + scallop size
+  --size: 30px; // try 30px for a subtler wave
+  --m: 0.5;
+  --p: calc(var(--m) * var(--size));
+  --R: calc(var(--size) * 1.118); // pre-calculated sqrt
+
+  /* Scalloped edges */
+  --r: 15px;
+
+  /* Add extra padding so text doesn't sit in the scallop area */
+  padding: calc(60px + var(--r)) calc(2rem + var(--r));
+
+  -webkit-mask:
+  /* Solid inner rectangle */
+    linear-gradient(#000, #000) var(--r) var(--r) / calc(100% - 2 * var(--r))
+      calc(100% - 2 * var(--r)) no-repeat,
+    /* Top bumps - semicircles protruding up */
+    radial-gradient(var(--r) at 50% 100%, #000 98%, #0000 101%) 0 0 /
+      calc(2 * var(--r)) var(--r) repeat-x,
+    /* Bottom bumps - semicircles protruding down */
+    radial-gradient(var(--r) at 50% 0%, #000 98%, #0000 101%) 0 100% /
+      calc(2 * var(--r)) var(--r) repeat-x,
+    /* Left bumps - semicircles protruding left */
+    radial-gradient(var(--r) at 100% 50%, #000 98%, #0000 101%) 0 0 / var(--r)
+      calc(2 * var(--r)) repeat-y,
+    /* Right bumps - semicircles protruding right */
+    radial-gradient(var(--r) at 0% 50%, #000 98%, #0000 101%) 100% 0 / var(--r)
+      calc(2 * var(--r)) repeat-y;
+
+  mask:
+    linear-gradient(#000, #000) var(--r) var(--r) / calc(100% - 2 * var(--r))
+      calc(100% - 2 * var(--r)) no-repeat,
+    radial-gradient(var(--r) at 50% 100%, #000 98%, #0000 101%) 0 0 /
+      calc(2 * var(--r)) var(--r) repeat-x,
+    radial-gradient(var(--r) at 50% 0%, #000 98%, #0000 101%) 0 100% /
+      calc(2 * var(--r)) var(--r) repeat-x,
+    radial-gradient(var(--r) at 100% 50%, #000 98%, #0000 101%) 0 0 / var(--r)
+      calc(2 * var(--r)) repeat-y,
+    radial-gradient(var(--r) at 0% 50%, #000 98%, #0000 101%) 100% 0 / var(--r)
+      calc(2 * var(--r)) repeat-y;
+  p {
+    color: $text-color;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: center;
+    max-width: 600px;
+  }
+}
+
+.event {
+  color: rgb(25, 58, 143);
+}
+
+// Style the carousel element
+.app-image-carousel {
+  display: block;
+  max-width: 800px;
+  width: 90%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
