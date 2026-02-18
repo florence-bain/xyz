@@ -1,65 +1,85 @@
-<div class="title-container">
+<div *ngIf="!isAuthenticated" class="password-container">
   <h1 class="title">Flo & Wez</h1>
+  <p class="subtitle">Enter password to view</p>
+  <input
+    type="password"
+    [(ngModel)]="passwordInput"
+    (keyup.enter)="checkPassword()"
+    placeholder="Password"
+    class="password-input"
+  />
+  <button (click)="checkPassword()" class="password-btn">Enter</button>
+  <p *ngIf="wrongPassword" class="wrong-password">Incorrect password</p>
 </div>
-<div class="subtitle-container">
-  <p class="subtitle">17.10.2026</p>
-</div>
-<div class="carousel-wrapper">
-  <app-image-carousel />
-</div>
-<div class="text-container">
-  <p>You are invited to Wez and Florence's wedding!</p>
-  <p>
-    We will be having the ceremony at St Nicholas church Dersingham and
-    reception at the the village hall over the road.
-  </p>
-  <p>
-    The wedding will be BYOB so please bring something you would like to drink.
-  </p>
-  <p>
-    It's also going to be an adults only day so please support your local
-    babysitter!
-  </p>
-  <p>No sit down meal, but there will be food provided throughout the day!</p>
-  <p style="text-align: left">
-    1pm
-    <span class="event"
-      >drop off drinks at the hall before heading over to the church
+
+<ng-container *ngIf="isAuthenticated">
+  <div class="title-container">
+    <h1 class="title">Flo & Wez</h1>
+  </div>
+  <div class="subtitle-container">
+    <p class="subtitle">17.10.2026</p>
+  </div>
+  <div class="carousel-wrapper">
+    <app-image-carousel />
+  </div>
+  <div class="text-container">
+    <p>You are invited to Wez and Florence's wedding!</p>
+    <p>
+      We will be having the ceremony at St Nicholas church Dersingham and
+      reception at the the village hall over the road.
+    </p>
+    <p>
+      The wedding will be BYOB so please bring something you would like to
+      drink. We will have bar staff avaliable to manage your drinks, keeping
+      them cold and serving them to you from the bar all evening.
+    </p>
+    <p>
+      It's also going to be an adults only day so please support your local
+      babysitter!
+    </p>
+    <p>No sit down meal, but there will be food provided throughout the day!</p>
+    <p style="text-align: left">
+      1pm
+      <span class="event"
+        >drop off drinks at the hall before heading over to the church
+      </span>
+      <br />2pm <span class="event">cermony</span> <br />from 2.30pm
+      <span class="event"
+        >welcome to the hall champagne, cake and speeches</span
+      >
+      <br />4pm <span class="event">Phat Kao Thai food truck</span> <br />8.30pm
+      <span class="event">Askers Pizza food truck</span> <br />11.45pm
+      <span class="event">Carriages</span>
+    </p>
+    <p></p>
+    <p>Can't wait to see you there!</p>
+  </div>
+  <div class="text-container">
+    <p>
+      There is plenty of space for parking at the village hall and across the
+      road at the doctors surgery.
+      <br />Taxi's will need to be booked in advance as there are few drivers in
+      the area. Here are some recommended taxi companies: <br /><span
+        class="event"
+        >A149 Cars 07786032611</span
+      >
+      <br />
+      <span class="event">Connect Cars 01553776633</span><br />
+      <span class="event">JJ cars 07395069773</span><br />
+      <span class="event">JD 07399042043</span><br />
+      <span class="event">King's 01553767692</span>.
+    </p>
+  </div>
+  <div class="text-container">
+    <p>Please RSVP by sending us a message on whatsapp or by text</p>
+    <p>While you're at it, send us a song recommendation for the evening!</p>
+    <span class="event">
+      We just want to see you at our special day and would never ask for
+      anything more. But, as people have asked, we blew our honeymoon budget on
+      the wedding so would be thankful for contributions as gifts
     </span>
-    <br />2pm <span class="event">cermony</span> <br />from 2.30pm
-    <span class="event">welcome to the hall champagne, cake and speeches</span>
-    <br />4pm <span class="event">Phat Kao Thai food truck</span> <br />8.30pm
-    <span class="event">Askers Pizza food truck</span> <br />11.45pm
-    <span class="event">Carriages</span>
-  </p>
-  <p></p>
-  <p>Can't wait to see you there!</p>
-</div>
-<div class="text-container">
-  <p>
-    There is plenty of space for parking at the village hall and across the road
-    at the doctors surgery.
-    <br />Taxi's will need to be booked in advance as there are few drivers in
-    the area. Here are some recommended taxi companies: <br /><span
-      class="event"
-      >A149 Cars 07786032611</span
-    >
-    <br />
-    <span class="event">Connect Cars 01553776633</span><br />
-    <span class="event">JJ cars 07395069773</span><br />
-    <span class="event">JD 07399042043</span><br />
-    <span class="event">King's 01553767692</span>.
-  </p>
-</div>
-<div class="text-container">
-  <p>Please RSVP by sending us a message on whatsapp or by text</p>
-  <p>While you're at it, send us a song recommendation for the evening!</p>
-  <span class="event">
-    We just want to see you at our special day and would never ask for anything
-    more. But, as people have asked, we blew our honeymoon budget on the wedding
-    so would be thankful for contributions as gifts
-  </span>
-</div>
-<div class="image-container">
-  <img src="assets/dersingham-church.JPG" alt="Church" />
-</div>
+  </div>
+  <div class="image-container">
+    <img src="assets/dersingham-church.JPG" alt="Church" />
+  </div>
+</ng-container>
