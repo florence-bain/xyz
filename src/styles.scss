@@ -1,5 +1,5 @@
 $background-color: #f26a8d;
-$text-color: #a91e1e;
+$text-color: #be1c38;
 $secondary-color: #ffffff;
 $font-family: "Century Schoolbook", "New Century Schoolbook", Georgia, serif;
 
@@ -133,7 +133,7 @@ body::before {
 
   max-width: 600px;
   padding: 60px 3rem; /* extra side padding for scallop inset */
-  margin: 240px auto 2rem;
+  margin: 13px auto 0rem;
   padding-bottom: calc(60px + 50px); // existing + scallop size
   --size: 30px; // try 30px for a subtler wave
   --m: 0.5;
@@ -182,6 +182,28 @@ body::before {
     text-align: center;
     max-width: 600px;
   }
+}
+
+.text-container-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  background-position: center;
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.photo-section {
+  background-image: url("/assets/IMG_4051_web.JPG");
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 2rem 18rem; /* controls how much photo shows around the text box */
+  max-width: 1200px; /* controls the width of the photo area */
+  margin: 10rem auto;
 }
 
 .event {

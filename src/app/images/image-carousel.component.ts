@@ -18,19 +18,17 @@ export class ImageCarouselComponent implements OnInit, OnDestroy {
   // --- Carousel Data ---
   images: CarouselImage[] = [
     {
-      url: 'assets/IMG_4023.JPG',
-      alt: 'Image 1'
-      
+      url: 'assets/IMG_4023_web.JPG',
+      alt: 'Image 1',
     },
     {
-      url: 'assets/IMG_1674.JPG',
-      alt: 'Image 2'
+      url: 'assets/IMG_1674_web.JPG',
+      alt: 'Image 2',
     },
     {
-      url: 'assets/IMG_4027.JPG',
-      alt: 'Image 3'
-      
-    }
+      url: 'assets/IMG_4027_web.JPG',
+      alt: 'Image 3',
+    },
   ];
 
   // --- Carousel State (Signals) ---
